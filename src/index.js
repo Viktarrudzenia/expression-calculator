@@ -56,7 +56,7 @@ function expressionCalculator(expr) {
     )[0];
     let sign = expressionForMultiplyAndDivision.match(/[/*]/)[0];
     if (sign === "/" && (secondNumber === "0" || firstNumber === "0")) {
-      throw new Error("TypeError: Devision by zero.");
+      throw new Error("TypeError: Division by zero.");
     }
     let numberWhichChangeExpression =
       sign === "*" ? firstNumber * secondNumber : firstNumber / secondNumber;
