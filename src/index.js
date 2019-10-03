@@ -70,12 +70,14 @@ function expressionCalculator(expr) {
   };
 
   // RegExp which search two numbers with + or -
-  let regExpForPlusAndMinus = /-{0,1}\d+\.{0,1}\d*\+-{0,1}\d+\.{0,1}\d*|-{0,1}\d+\.{0,1}\d*minus-{0,1}\d+\.{0,1}\d*/;
+  let regExpForPlusAndMinus = /-{0,1}\d+\.{0,1}\d*e{0,1}-{0,1}\d*\+-{0,1}\d+\.{0,1}\d*e{0,1}-{0,1}\d*|-{0,1}\d+\.{0,1}\d*e{0,1}-{0,1}\d*minus-{0,1}\d+\.{0,1}\d*e{0,1}-{0,1}\d*/;
 
   // Function which addition and subtraction two numbers
   let plusAndMinus = expression => {
     let expressionForPlusAndMinus = expression.match(regExpForPlusAndMinus)[0];
-    let firstNumber = expressionForPlusAndMinus.match(/-{0,1}\d+\.{0,1}\d*/)[0];
+    let firstNumber = expressionForPlusAndMinus.match(
+      /-{0,1}\d+\.{0,1}\d*e{0,1}-{0,1}\d*/
+    )[0];
     let secondNumber = expressionForPlusAndMinus.match(
       /-{0,1}\d+\.{0,1}\d*$/
     )[0];
